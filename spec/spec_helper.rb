@@ -1,17 +1,7 @@
 require "bundler/setup"
-require "date"
 require "render_as_js"
+require "date"
 require "action_view"
-#
-# class String
-#   def html_safe
-#     return self
-#   end
-# end
-#
-# def sanitize string
-#   return string
-# end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

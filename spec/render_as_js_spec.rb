@@ -4,7 +4,7 @@ require 'render_as_js/view_helpers' #otherwise done by the railtie, which we're 
 # require ""
 
 class TestViewHelper
-  include ViewHelpers
+  include RenderAsJs::ViewHelpers
   include ActionView::Helpers::SanitizeHelper
 end
 helper = TestViewHelper.new
