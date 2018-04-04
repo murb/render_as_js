@@ -16,7 +16,7 @@ module RenderAsJs
       elsif obj.is_a?(NilClass)
         nil_to_js_obj obj
       else
-        return obj
+        return sanitize(obj.to_s)
       end
     end
 

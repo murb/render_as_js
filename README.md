@@ -1,6 +1,27 @@
 # RenderAsJs
 
-Simple Rails helper to render a ruby hash to a ES5/JavaScript object
+Simple Rails helper to render a ruby hash to a ES5/JavaScript object. While a hash like `{a:2}` in ruby looks like an acceptable object in JS-terms, `{a:2}.to_s`
+renders to a string something along the lines of `{:a=>2}`. Which fails badly in any JS-interpreter. So try `{a:2}.to_json` and parse it in JS. Might work 90% of
+the time, but not for e.g. Dates (which turn into strings, which need to be re-evaluated without type-information at the frontend before further interpretation).
+
+Besides converting ruby's Hashes, this gem attempts to rerender the following things nicely in JS:
+
+- Strings
+- Date(Time)s
+- Numbers
+- Symbols
+- Booleans
+- `nil`s
+
+Note: this is no attempt to recompile ruby to JavaScript, I don't want to get near there.
+
+### Alternative
+
+This almost does the same trick: `let data = JSON.parse(<%= @data.to_json %>)`. Sadly that doesn't work very nicely for dates.
+
+### Warning
+
+While sanitizing is done using the Rails `sanitize` helper; be really careful when passing unknown data through this gem (numbers and dates will (probably) be fine, but be careful with strings).
 
 ## Installation
 
