@@ -1,3 +1,5 @@
+Note: this project is archived. I'm not using this in any project anymore as there are better options. Check [Hotwired](https://hotwired.dev)
+
 # RenderAsJs
 
 Simple Rails helper to render a ruby hash to a ES5/JavaScript object. While a hash like `{a:2}` in ruby looks like an acceptable object in JS-terms, `{a:2}.to_s`
